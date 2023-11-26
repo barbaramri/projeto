@@ -1,0 +1,48 @@
+﻿@model IEnumerable<Projeto_Locadora.Models.Locadora>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Menu principal</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.LocadoraId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Nome)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Descricao)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.LocadoraId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Descricao)
+            </td>
+            <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.LocadoraId }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.LocadoraId }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.LocadoraId })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
